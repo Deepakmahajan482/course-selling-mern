@@ -1,0 +1,50 @@
+const mongoose=require('mongoose')
+const { Schema } = mongoose;
+const userSchema = new Schema({
+  email: { type: String, unique: true },
+  password: String,
+  firstName: String,
+  lastName: String
+});
+
+const adminSchema = new Schema({
+  email: { type: String, unique: true },
+  password: String,
+  firstName: String,
+  lastName: String
+});
+
+const courseSchema = new Schema({
+  title: String,
+  description: String,
+  price: Number,
+  imageUrl: String,
+  creatorId: {
+    type: Schema.Types.ObjectId,
+    ref: "admins" 
+  }
+});
+
+const purchaseSchema = new Schema({
+  courseId: {
+    type: Schema.Types.ObjectId,
+    ref: "courses" 
+  },
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: "users" 
+  }
+});
+
+// Models
+const userModel = mongoose.model("users", userSchema);
+const adminModel = mongoose.model("admins", adminSchema);
+const courseModel = mongoose.model("courses", courseSchema);
+const purchaseModel = mongoose.model("purchases", purchaseSchema);
+
+module.exports = {
+  userModel,
+  adminModel,
+  courseModel,
+  purchaseModel
+};
