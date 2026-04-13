@@ -6,7 +6,7 @@ const {z}=require('zod');
 const jwt=require('jsonwebtoken')
 const bcrypt=require('bcrypt')
 const userRouter=Router();
-const {userMiddleware}=require('./middleware/user')
+const {userMiddleware}=require('../middleware/user')
 
   userRouter.post("/signup",async (req,res)=>{
   const userSchema=z.object({

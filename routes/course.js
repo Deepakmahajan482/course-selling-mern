@@ -1,7 +1,7 @@
 const {Router}=require('express');
 const admin = require('./admin');
 const {courseModel, purchaseModel}=require('../db');
-const { userMiddleware } = require('./middleware/user');
+const { userMiddleware } = require('../middleware/user');
 
 const courseRouter=Router();
   courseRouter.post("/purchase",userMiddleware,async (req,res)=>{

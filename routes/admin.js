@@ -4,7 +4,7 @@ const {adminModel, courseModel}=require('../db')
 const jwt=require('jsonwebtoken')
 const bcrypt=require('bcrypt');
 const {z}=require('zod');
-const { adminMiddleware } = require('./middleware/admin');
+const { adminMiddleware } = require('../middleware/admin');
 
 // bcrypt,zod,jsonwebtoken
 
