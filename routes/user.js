@@ -72,7 +72,7 @@ const {userMiddleware}=require('./middleware/user')
 
   userRouter.get("/purchase",userMiddleware,async (req,res)=>{
     const userId=req.userId;
-    const courses=await purchaseModel.find({userId});
+    const courses=await purchaseModel.find({userId}).populate("courseId");
     if(courses.length==0){
       res.status(403).json({
         message:"there is no course you buy"
